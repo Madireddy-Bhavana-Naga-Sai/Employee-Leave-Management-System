@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body style="background-color:burlywood;">
+    <meta charset="UTF-8">
+    <title>Leave Balance Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #leaveBalance {
+            font-size: 24px;
+            margin: 20px;
+        }
+        #checkButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #0074cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leave Balance Checker</h1>
+    <p>Enter the number of leave days you want to check:</p>
+    <input type="number" id="leaveDays" min="0" placeholder="Enter leave days">
+    <button id="checkButton">Check Balance</button>
+    <p id="leaveBalance"></p>
+
+    <script>
+        document.getElementById("checkButton").addEventListener("click", function() {
+            var leaveDays = parseInt(document.getElementById("leaveDays").value);
+            var totalLeaveBalance = 6; // Replace with the actual leave balance
+
+            if (!isNaN(leaveDays)) {
+                var remainingBalance = totalLeaveBalance - leaveDays;
+                if (remainingBalance >= 0) {
+                    document.getElementById("leaveBalance").innerHTML = "You have " + remainingBalance + " days remaining. you can proceed for leave";
+
+                }
+                else {
+                    document.getElementById("leaveBalance").innerHTML = "Insufficient leave balance. you can't apply leave";
+                }
+            } else {
+                document.getElementById("leaveBalance").innerHTML = "Please enter a valid number of leave days.";
+            }
+        });
+    </script>
+    <h2><a href="apply2.html">click here to apply leave</a></h2><br>
+</body>
+</html>
